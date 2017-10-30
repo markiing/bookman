@@ -1,0 +1,22 @@
+header{
+    width: 100%;
+    height: 4em;
+    color:white;
+}
+
+.logo{
+    height: 4em;
+    text-align: center;
+    padding-top: 1em;
+}
+
+.search-bar{
+    padding-top: .7em;
+    margin-left: 28em;
+    display: block;
+    float:right;
+}
+
+button{
+    cursor: pointer;
+}

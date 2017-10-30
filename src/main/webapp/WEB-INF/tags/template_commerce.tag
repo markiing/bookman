@@ -3,25 +3,34 @@
 <%@tag description="Overall Page template" pageEncoding="UTF-8" %>
 <%@attribute name="cssFragment" fragment="true" %>
 <%@attribute name="jsFragment" fragment="true" %>
-<html lang="PT">
+<%@attribute name="header" fragment="true" %>
+<html lang="PT-BR">
 <head>
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/footer.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
     <jsp:invoke fragment="cssFragment"/>
 </head>
 <body>
-    <div id="header">
-        <img class="img-fluid" src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Logo_TV_2015.png" width="100">
-        <h1>Bem Vindo ;D</h1>
-    </div>
-    <div class="container">
+
+    <header id="header" class="fixed-top">
+        <jsp:include page="../commerce/fixed/header.jsp"/>
+    </header>
+
+
+    <section class="container content">
         <jsp:doBody/>
-    </div>
-    <div id="pagefooter">
-        <p id="copyright">TEMPLATE DESENVOLVIDO POR MARCUS CARTAGENES &copy; 2017</p>
-    </div>
+    </section>
+
+    <footer id="footer" class="fixed-bottom">
+        <jsp:include page="../commerce/fixed/footer.jsp"/>
+    </footer>
+
+
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"/>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
     <jsp:invoke fragment="jsFragment"/>
 </body>
 </html>

@@ -1,5 +1,7 @@
-#header{
-    background-color: red;
-    width: 100%;
-    border: 1px solid black;
+footer, header{
+    background-color: #01183d;
+}
+
+.content{
+    margin-top:5em;
 }
