@@ -313,5 +313,85 @@
                 </div>
             </div>
         </div>
+
+        <h3>Mais vendidos</h3>
+        <hr>
+        <div class="row books">
+            <div class="book">
+                <div class="folder">
+                    <img src="https://images-americanas.b2w.io/produtos/01/00/item/131859/1/131859181G1.jpg"
+                         alt="IMG"/>
+                </div>
+                <div class="bookname">
+                    Meu Livro !
+                </div>
+                <div class="price">
+                    R$35,00
+                </div>
+                <div class="button-buy">
+                    <button class="btn btn-success">Comprar</button>
+                </div>
+            </div>
+            <div class="book">
+                <div class="folder">
+                    <img src="https://images-americanas.b2w.io/produtos/01/00/item/120095/7/120095770G1.jpg"
+                         alt="IMG"/>
+                </div>
+                <div class="bookname">
+                    Meu Livro !
+                </div>
+                <div class="price">
+                    R$35,00
+                </div>
+                <div class="button-buy">
+                    <button class="btn btn-success">Comprar</button>
+                </div>
+            </div>
+            <div class="book">
+                <div class="folder">
+                    <img src="https://images-americanas.b2w.io/produtos/01/00/item/132342/2/132342299G1.jpg"
+                         alt="IMG"/>
+                </div>
+                <div class="bookname">
+                    Meu Livro !
+                </div>
+                <div class="price">
+                    R$35,00
+                </div>
+                <div class="button-buy">
+                    <button class="btn btn-success">Comprar</button>
+                </div>
+            </div>
+            <div class="book">
+                <div class="folder">
+                    <img src="https://images-americanas.b2w.io/produtos/01/00/item/119882/2/119882282G1.jpg"
+                         alt="IMG"/>
+                </div>
+                <div class="bookname">
+                    Meu Livro !
+                </div>
+                <div class="price">
+                    R$35,00
+                </div>
+                <div class="button-buy">
+                    <button class="btn btn-success">Comprar</button>
+                </div>
+            </div>
+            <div class="book">
+                <div class="folder">
+                    <img src="https://images-americanas.b2w.io/produtos/01/00/item/131859/1/131859181G1.jpg"
+                         alt="IMG"/>
+                </div>
+                <div class="bookname">
+                    Meu Livro !
+                </div>
+                <div class="price">
+                    R$35,00
+                </div>
+                <div class="button-buy">
+                    <button class="btn btn-success">Comprar</button>
+                </div>
+            </div>
+        </div>
     </jsp:body>
 </t:template_commerce>

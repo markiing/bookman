@@ -20,3 +20,69 @@ header{
 button{
     cursor: pointer;
 }
+
+.submenu{
+    background-color: #16438c;
+    margin-top: -5px;
+    height: 2em;
+    width: 100% !important;
+    position: fixed;
+}
+
+.categories-label{
+    margin-top: 1px;
+    margin-left: 10em;
+    cursor: pointer;
+    transition: .5s;
+    padding: .2vh;
+    padding-left:30px;
+    padding-right:30px;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+}
+
+.categories-label:hover{
+    background-color: #01183d;
+}
+
+
+.categories-details{
+    width: 15em;
+    margin-left:23em;!important;
+    border: 1px solid black;
+    background-color: white;
+    padding:.3em;
+}
+.categorie{
+    width: 100%;
+    padding:10px;
+    margin-top:5px;
+    margin-left:30px;
+    cursor: pointer;
+    transition: 0.5s;
+    border-radius: 8px;
+}
+
+.categorie:hover{
+    background-color:lightgrey;
+}
+
+.categorie > a{
+    text-decoration: none;
+    color:black;
+    text-align: center;
+}
+
+.categorie > a:hover{
+
+}
+
+.divider{
+    width: 80%;
+    margin-left: 2em;
+    margin-right: auto;
+    margin-top:10px;
+    display: block;
+    border: .3px solid gray;
+}

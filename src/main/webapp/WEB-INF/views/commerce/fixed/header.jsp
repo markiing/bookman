@@ -11,10 +11,23 @@
         </form>
     </div>
 </div>
-<div class="row">
-    <div class="col-md-12 col-lg-12 col-sm-12 col-xl-12 col-12 submenu">
-        <div class="col-3">
-            JOAO
-        </div>
+<div class="row col-md-12 col-lg-12 col-sm-12 col-xl-12 col-12 submenu">
+    <p class="categories-label">Categorias</p>
+</div>
+<div class="row col-md-2 col-lg-2 col-sm-12 col-xl-2 col-12 categories-details">
+    <div class="categorie">
+        <a href="#">Drama</a>
+    </div>
+    <div class="divider"></div>
+    <div class="categorie">
+        <a href="#">Drama</a>
+    </div>
+    <div class="divider"></div>
+    <div class="categorie">
+        <a href="#">Drama</a>
+    </div>
+    <div class="divider"></div>
+    <div class="categorie">
+        <a href="#">Drama</a>
     </div>
 </div>

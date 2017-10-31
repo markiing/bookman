@@ -6,7 +6,9 @@
 <%@attribute name="header" fragment="true" %>
 <html lang="PT-BR">
 <head>
+    <title>Bookman Commerce</title>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/slick/slick.css"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/footer.css">
@@ -31,6 +33,19 @@
 
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/slick/slick.min.js"></script>
+    <script>
+        $('.categories-label').click(function () {
+            console.log("Clicou!")
+            $('.categories-details').slideToggle("slow", function () {})
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+            $('.your-class').slick({settingname: setting-value});
+        });
+    </script>
     <jsp:invoke fragment="jsFragment"/>
 </body>
 </html>
