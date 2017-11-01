@@ -5,36 +5,36 @@
 <t:template_commerce>
     <jsp:attribute name="cssFragment">
         <style>
-            .bookimage{
+            .bookimage {
                 height: 20em;
             }
 
-            .bookdetails{
+            .bookdetails {
                 height: 20em;
                 padding: 3em;
                 background-color: #f7f7f7;
             }
 
-            .title{
+            .title {
                 text-align: center;
             }
 
-            img, p{
+            img, p {
                 margin-left: auto;
                 margin-right: auto;
                 display: block;
                 text-align: center;
             }
 
-            button{
-                margin-left:auto;
+            button {
+                margin-left: auto;
                 margin-right: auto;
                 display: block;
                 margin-left: 8em;
             }
 
-            .bookprice{
-                font-weight:bolder;
+            .bookprice {
+                font-weight: bolder;
                 color: #27ae60;
             }
 
@@ -45,14 +45,16 @@
             var b = false;
             $('.interresting').click(function () {
                 $('#form-auth').slideToggle("slow", function () {
-                    if(b){
+                    if (b) {
                         b = false;
-                        $('.master').css({'margin-bottom':'0px'})
+                        $('.master').css({'margin-bottom': '0px'})
+                        $('.interresting').attr('input', 'button')
                         $('.interresting').text('Tenho Interesse')
-                    }else{
+                    } else {
                         b = true;
                         $('.interresting').text('Comprar')
-                        $('.master').css({'margin-bottom':'10em'});
+                        $('.interresting').attr('type', 'submit')
+                        $('.master').css({'margin-bottom': '10em'});
                     }
                 });
             })
@@ -65,7 +67,7 @@
         </script>
     </jsp:attribute>
     <jsp:body>
-        <div  class="master" style="margin-top: 7em;">
+        <div class="master" style="margin-top: 7em;">
             <div class="row">
                 <div class="col-md-12 col-12 col-lg-12 col-sm-12 col-lg-12 title">
                     <h3>${bookDetails.title}</h3>
@@ -74,12 +76,16 @@
             <div class="row">
                 <div class="col-12 col-lg-4 col-md-4 col-sm-12 col-xl-4 bookimage">
                     <img src="${bookDetails.urlFolder}">
-                    <p class="bookprice" ></p>
-                    <div id="form-auth" style="display: none">
-                        <input type="text" name="matricula" class="form-control" placeholder="Matricula"><br>
-                        <input type="password" name="password" class="form-control" placeholder="Senha">
-                    </div><br>
-                    <button type="button" class="btn btn-success interresting">Vamos Lá !</button>
+                    <p class="bookprice"></p>
+                    <form action="<c:url value="/commerce/purchase"/>" method="post">
+                        <div id="form-auth" style="display: none">
+                            <input type="text" style="display: none" name="isbn" value="${bookDetails.isbn}">
+                            <input type="text" name="matricula" class="form-control" placeholder="Matricula"><br>
+                            <input type="password" name="senha" class="form-control" placeholder="Senha">
+                        </div>
+                        <br>
+                        <button type="button" class="btn btn-success interresting">Vamos Lá !</button>
+                    </form>
                 </div>
 
                 <div class="col-12 col-lg-8 col-md-8 col-sm-12 col-xl-8 bookdetails">
@@ -90,7 +96,8 @@
                         </div>
                         <div class="row col-12 col-lg-12 col-md-12 col-sm-12">
                             <p style="float:left">ISBN: <strong>${bookDetails.isbn}</strong></p>
-                            <p style="float:right">Quantidade de Paginas: <strong>${bookDetails.pageQuantity}</strong></p>
+                            <p style="float:right">Quantidade de Paginas: <strong>${bookDetails.pageQuantity}</strong>
+                            </p>
                         </div>
                     </div>
                     <strong>Sinópse</strong>
