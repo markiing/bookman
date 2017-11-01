@@ -8,11 +8,6 @@
 </div>
 <div class="submenu">
     <div class="col-md-2 col-lg-2 col-sm-12 col-xl-2 col-12">
-        <ul>
-            <li>Oi</li>
-            <li>Teste</li>
-        </ul>
-        <p>Home</p>
         <p class="categories-label">Categorias</p>
     </div>
 </div>

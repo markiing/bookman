@@ -45,6 +45,9 @@ public class Book {
     private String sinopsis;
 
     @Column
+    private Integer pageQuantity;
+
+    @Column
     private Date dateInserted;
 
     @Column
