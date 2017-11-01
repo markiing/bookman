@@ -35,6 +35,16 @@
 
         </style>
     </jsp:attribute>
+    <jsp:attribute name="jsFragment">
+        <script>
+            $(document).ready(function () {
+                $('.bookprice').text(formataDinheiro(${bookDetails.price}))
+            })
+            function formataDinheiro(n) {
+                return "R$ " + n.toFixed(2).replace('.', ',').replace(/(\d)(?=(\d{3})+\,)/g, "$1.");
+            }
+        </script>
+    </jsp:attribute>
     <jsp:body>
         <div style="margin-top: 7em">
             <div class="row">
@@ -45,8 +55,8 @@
             <div class="row">
                 <div class="col-12 col-lg-4 col-md-4 col-sm-12 col-xl-4 bookimage">
                     <img src="${bookDetails.urlFolder}">
-                    <p>${bookDetails.price}</p>
-                    <button type="submit" class="btn btn-success">Comprar</button>
+                    <p class="bookprice" ></p>
+                    <button type="button" onclick="formataDinheiro(${bookDetails.price})" class="btn btn-success">Comprar</button>
                 </div>
 
                 <div class="col-12 col-lg-8 col-md-8 col-sm-12 col-xl-8 bookdetails">
