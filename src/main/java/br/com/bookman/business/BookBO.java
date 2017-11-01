@@ -22,4 +22,12 @@ public class BookBO implements IBookBO{
         Assert.notEmpty(bookAvaliables,"Não possuem livros cadastrados na base de dados !");
         return bookAvaliables;
     }
+
+    @Override
+    public Book findByISBN(String isbn) throws PersistenceException {
+        Assert.notNull(isbn,"ISBN Vazio não passará !");
+        Book b = bookDAO.getByISBN(isbn);
+        Assert.notNull(b,"ISBN não encontrado na nossa base de dados");
+        return b;
+    }
 }

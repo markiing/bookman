@@ -4,6 +4,7 @@ package br.com.bookman.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.NumberFormat;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -13,7 +14,10 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@NamedQueries({@NamedQuery(name = "Book.findAll", query = "select b from Book b where b.visible = :visible")})
+@NamedQueries({
+        @NamedQuery(name = "Book.findAll", query = "select b from Book b where b.visible = :visible"),
+        @NamedQuery(name = "Book.findNews", query = "select b from Book b where b.visible =:visible order by b.dateInserted DESC")
+    })
 public class Book {
 
     @Id
@@ -29,10 +33,12 @@ public class Book {
     @Column
     private Integer yearPublished;
 
-    @Column
-    private String genre;
+    @ManyToOne
+    @JoinColumn(name = "genre", referencedColumnName = "code")
+    private Genre genre;
 
     @Column
+    @NumberFormat(style = NumberFormat.Style.CURRENCY)
     private Double price;
 
     @Column
@@ -43,4 +49,7 @@ public class Book {
 
     @Column
     private Boolean visible;
+
+    @Column
+    private String UrlFolder;
 }

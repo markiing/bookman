@@ -25,6 +25,20 @@ public class BookDAO implements IBookDAO{
     }
 
     @Override
+    public List<Book> getNews() throws PersistenceException {
+        TypedQuery<Book> query = em.createNamedQuery("Book.findNews", Book.class);
+        query.setMaxResults(5);
+        query.setParameter("visible",true);
+        return query.getResultList();
+    }
+
+    @Override
+    public Book getByISBN(String isbn) throws PersistenceException {
+        Book book = em.find(Book.class, isbn);
+        return book;
+    }
+
+    @Override
     public void save(Book book) throws PersistenceException {
         em.persist(book);
     }
