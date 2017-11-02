@@ -12,8 +12,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/footer.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
-    <jsp:invoke fragment="cssFragment"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">    <jsp:invoke fragment="cssFragment"/>
 </head>
 <body>
 
@@ -32,12 +31,23 @@
 
 
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>    <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/slick/slick.min.js"></script>
     <script>
         $('.categories-label').click(function () {
             $('.categories-details').slideToggle("slow", function () {})
+        });
+    </script>
+    <script>
+        var activeEl = 2;
+        $(function() {
+            var items = $('.btn-nav');
+            $( items[activeEl] ).addClass('active');
+            $( ".btn-nav" ).click(function() {
+                $( items[activeEl] ).removeClass('active');
+                $( this ).addClass('active');
+                activeEl = $( ".btn-nav" ).index( this );
+            });
         });
     </script>
     <script>
