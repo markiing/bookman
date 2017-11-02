@@ -9,5 +9,6 @@ import java.util.List;
 public interface IBookBO {
 
     List<Book> getAvaliables() throws PersistenceException;
+    List<Book> getByGenre(Integer genreID) throws PersistenceException;
     Book findByISBN(String isbn) throws PersistenceException;
 }

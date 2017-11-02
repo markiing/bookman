@@ -16,7 +16,8 @@ import java.util.Date;
 @NoArgsConstructor
 @NamedQueries({
         @NamedQuery(name = "Book.findAll", query = "select b from Book b where b.visible = :visible"),
-        @NamedQuery(name = "Book.findNews", query = "select b from Book b where b.visible =:visible order by b.dateInserted DESC")
+        @NamedQuery(name = "Book.findNews", query = "select b from Book b where b.visible =:visible order by b.dateInserted DESC"),
+        @NamedQuery(name = "Book.findByGenre", query = "select b from Book b where b.genre.code =:codeGenre and b.visible =:visible")
     })
 public class Book {
 

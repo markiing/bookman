@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Calendar;
+import java.util.List;
 
 @Controller
 public class CommerceController {
@@ -39,6 +40,20 @@ public class CommerceController {
         return null;
     }
 
+    @GetMapping("/commerce/filter/genre/{genre}")
+    public ModelAndView getByGenre(@PathVariable("genre") Integer genreId){
+        ModelAndView mav = new ModelAndView("commerce/search");
+        try {
+            List<Book> books = facade.get(IBookDAO.class).getByGenre(genreId);
+            mav.addObject("filterMessage",String.format("Livros filtrados com o genero %s",books.get(0).getGenre().getGenre()));
+            mav.addObject("books",books);
+        } catch (Exception e) {
+            //TODO DEVEMOS TRATAR AS MENSAGENS DE ERRO !
+            System.out.println(e);
+        }
+        return mav;
+    }
+
     @GetMapping("/commerce/details/{isbn}")
     public ModelAndView getDetails(@PathVariable(name = "isbn")String isbn, HttpServletResponse response) throws IOException {
         ModelAndView maV = new ModelAndView();
@@ -53,6 +68,9 @@ public class CommerceController {
         }
         return null;
     }
+
+
+
 
     @PostMapping("/commerce/purchase")
     public ModelAndView purchase(String matricula, String senha, String isbn){

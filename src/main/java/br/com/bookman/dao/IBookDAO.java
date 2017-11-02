@@ -10,6 +10,7 @@ import java.util.List;
 public interface IBookDAO {
     List<Book> getAvaliables() throws PersistenceException;
     List<Book> getNews() throws PersistenceException;
+    List<Book> getByGenre(Integer genreID) throws PersistenceException;
     Book getByISBN(String isbn) throws PersistenceException;
     void save(Book book) throws PersistenceException;
     void update(Book book) throws PersistenceException;

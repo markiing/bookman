@@ -81,7 +81,7 @@
                             <input type="password" name="senha" class="form-control" placeholder="Senha">
                         </div>
                         <br>
-                        <button type="button" class="btn btn-success interresting">Vamos Lá !</button>
+                        <button type="button" class="btn btn-success interresting">Comprar</button>
                     </form>
                 </div>
 

@@ -14,7 +14,7 @@
 <div class="row col-md-2 col-lg-2 col-sm-12 col-xl-2 col-12 categories-details" style="display:none">
     <c:forEach items="${genres}" var="g">
         <div class="categorie">
-            <a href="#">${g.genre}</a>
+            <a href="<c:url value="/commerce/filter/genre/${g.code}"/>">${g.genre}</a>
         </div>
         <div class="divider"></div>
     </c:forEach>

@@ -24,6 +24,14 @@ public class BookBO implements IBookBO{
     }
 
     @Override
+    public List<Book> getByGenre(Integer genreID) throws PersistenceException {
+        Assert.notNull(genreID,"Você precisa especificar um gênero !");
+        List<Book> byGenre = bookDAO.getByGenre(genreID);
+        Assert.notEmpty(byGenre,"Nenhum livro encontrado com esse gênero !");
+        return byGenre;
+    }
+
+    @Override
     public Book findByISBN(String isbn) throws PersistenceException {
         Assert.notNull(isbn,"ISBN Vazio não passará !");
         Book b = bookDAO.getByISBN(isbn);
