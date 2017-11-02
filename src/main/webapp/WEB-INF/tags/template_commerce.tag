@@ -37,11 +37,14 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/slick/slick.min.js"></script>
     <script>
         $('.categories-label').click(function () {
-            console.log("Clicou!")
             $('.categories-details').slideToggle("slow", function () {})
         });
     </script>
     <script>
+        function formataDinheiro(n) {
+            var s = "R$ " + n.toFixed(2).replace('.', ',').replace(/(\d)(?=(\d{3})+\,)/g, "$1.");
+            return s;
+        }
         $(document).ready(function(){
             $('.your-class').slick({settingname: setting-value});
         });

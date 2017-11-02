@@ -89,8 +89,18 @@
     </jsp:attribute>
 
     <jsp:attribute name="jsFragment">
+
         <script type="text/javascript"
                 src="${pageContext.request.contextPath}/resources/js/jssor.slider-26.3.0.min.js"></script>
+        <script>
+
+            $(document).ready(function () {
+                $.each($('.price'), function(key, value) {
+                   var s = (formataDinheiro(parseFloat(value.innerText)));
+                   value.innerText = s;
+                });
+            });
+        </script>
         <script type="text/javascript">
             jssor_1_slider_init = function () {
 
@@ -244,7 +254,7 @@
                         <img src="${book.urlFolder}" alt="IMG"/>
                     </div>
                     <div class="bookname">
-                       ${book.title}
+                        ${book.title}
                     </div>
                     <div class="price">
                         ${book.price}
@@ -254,6 +264,7 @@
                     </div>
                 </div>
             </c:forEach>
+            <script>console.log("Fim de Carregamento")</script>
         </div>
 
         <h3>Mais vendidos</h3>
@@ -268,7 +279,7 @@
                     Meu Livro !
                 </div>
                 <div class="price">
-                    R$35,00
+                    38.00
                 </div>
                 <div class="button-buy">
                     <button class="btn btn-success">Comprar</button>
@@ -283,7 +294,7 @@
                     Meu Livro !
                 </div>
                 <div class="price">
-                    R$35,00
+                    35.00
                 </div>
                 <div class="button-buy">
                     <button class="btn btn-success">Comprar</button>
@@ -298,7 +309,7 @@
                     Meu Livro !
                 </div>
                 <div class="price">
-                    R$35,00
+                    35.30
                 </div>
                 <div class="button-buy">
                     <button class="btn btn-success">Comprar</button>
@@ -313,7 +324,7 @@
                     Meu Livro !
                 </div>
                 <div class="price">
-                    R$35,00
+                    29.90
                 </div>
                 <div class="button-buy">
                     <button class="btn btn-success">Comprar</button>
@@ -328,7 +339,7 @@
                     Meu Livro !
                 </div>
                 <div class="price">
-                    R$35,00
+                    33.00
                 </div>
                 <div class="button-buy">
                     <button class="btn btn-success">Comprar</button>

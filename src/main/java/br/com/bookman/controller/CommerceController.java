@@ -59,12 +59,13 @@ public class CommerceController {
         try {
             Book book = facade.get(IBookBO.class).findByISBN(isbn);
             Purchase purchase = new Purchase(null,book, Calendar.getInstance().getTime(),matricula,null);
-            System.out.println(matricula);
-            System.out.println(senha);
+
+
             return null;
         }catch (Exception ex){
             System.out.println(ex.getMessage());
         }
 
+        return null;
     }
 }

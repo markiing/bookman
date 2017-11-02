@@ -61,9 +61,6 @@
             $(document).ready(function () {
                 $('.bookprice').text(formataDinheiro(${bookDetails.price}))
             });
-            function formataDinheiro(n) {
-                return "R$ " + n.toFixed(2).replace('.', ',').replace(/(\d)(?=(\d{3})+\,)/g, "$1.");
-            }
         </script>
     </jsp:attribute>
     <jsp:body>
