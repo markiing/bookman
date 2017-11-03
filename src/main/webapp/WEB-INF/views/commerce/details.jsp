@@ -26,7 +26,7 @@
                 text-align: center;
             }
 
-            button {
+            .interresting {
                 margin-left: auto;
                 margin-right: auto;
                 display: block;
