@@ -56,4 +56,8 @@ public class Book {
 
     @Column
     private String UrlFolder;
+
+    public void subtractOneUnity(){
+        this.quantity = this.quantity - 1;
+    }
 }

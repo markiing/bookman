@@ -2,10 +2,13 @@ package br.com.bookman.controller;
 
 
 import br.com.bookman.business.IBookBO;
+import br.com.bookman.business.IEmployeeBO;
 import br.com.bookman.dao.IBookDAO;
+import br.com.bookman.dao.IEmployeeDAO;
 import br.com.bookman.dao.IGenreDAO;
 import br.com.bookman.facade.IFacade;
 import br.com.bookman.model.Book;
+import br.com.bookman.model.Employee;
 import br.com.bookman.model.Purchase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,36 +24,32 @@ import java.util.Calendar;
 import java.util.List;
 
 @Controller
-@RequestMapping("/commerce")
 public class CommerceController {
 
     @Autowired
     private IFacade facade;
 
-    @RequestMapping("/")
+    @RequestMapping("/commerce")
     public ModelAndView index() {
+        ModelAndView modelAndView = new ModelAndView("commerce/principal");
         try {
-            ModelAndView modelAndView = new ModelAndView("commerce/principal");
             modelAndView.addObject("genres",facade.get(IGenreDAO.class).getAll());
             modelAndView.addObject("bookNews",facade.get(IBookDAO.class).getNews());
-            return modelAndView;
         }catch (Exception ex){
-            //TODO DEVEMOS TRATAR AS MENSAGENS DE ERRO
-            System.out.println(ex.getMessage());
+            modelAndView.addObject("error",ex.getMessage());
         }
-        return null;
+        return modelAndView;
     }
 
     @GetMapping("/commerce/filter/genre/{genre}")
     public ModelAndView getByGenre(@PathVariable("genre") Integer genreId){
         ModelAndView mav = new ModelAndView("commerce/search");
         try {
-            List<Book> books = facade.get(IBookDAO.class).getByGenre(genreId);
+            List<Book> books = facade.get(IBookBO.class).getByGenre(genreId);
             mav.addObject("filterMessage",String.format("Livros filtrados com o genero %s",books.get(0).getGenre().getGenre()));
             mav.addObject("books",books);
         } catch (Exception e) {
-            //TODO DEVEMOS TRATAR AS MENSAGENS DE ERRO !
-            System.out.println(e);
+            mav.addObject("error",e.getMessage());
         }
         return mav;
     }
@@ -62,29 +61,27 @@ public class CommerceController {
                 maV.addObject("bookDetails", facade.get(IBookBO.class).findByISBN(isbn));
                 maV.addObject("genres",facade.get(IGenreDAO.class).getAll());
                 maV.setViewName("commerce/details");
-                return maV;
         }catch (Exception ex){
             response.sendRedirect("/Bookman/commerce");
-            System.out.println(ex.getMessage());
+            maV.addObject("error",ex.getMessage());
         }
-        return null;
+        return maV;
     }
-
-
 
 
     @PostMapping("/commerce/purchase")
     public ModelAndView purchase(String matricula, String senha, String isbn){
+        ModelAndView mAV = new ModelAndView("commerce/details");
         try {
             Book book = facade.get(IBookBO.class).findByISBN(isbn);
-            Purchase purchase = new Purchase(null,book, Calendar.getInstance().getTime(),matricula,null);
-
-
-            return null;
+            Employee employee = facade.get(IEmployeeBO.class).getByIdentifierAndPassword(matricula,senha);
+            Purchase purchase = new Purchase(null,book, Calendar.getInstance().getTime(),employee,null);
+            facade.get(IEmployeeBO.class).newPurchase(purchase);
+            mAV.addObject("bookDetails", facade.get(IBookBO.class).findByISBN(isbn));
+            mAV.addObject("message",String.format("Livro %s comprado com sucesso !",book.getTitle()));
         }catch (Exception ex){
-            System.out.println(ex.getMessage());
+            mAV.addObject("error",ex.getMessage());
         }
-
-        return null;
+        return mAV;
     }
 }

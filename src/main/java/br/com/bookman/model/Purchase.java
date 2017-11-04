@@ -27,8 +27,9 @@ public class Purchase {
     @Column
     private Date datePurchase;
 
-    @Column
-    private String reponsable;
+    @ManyToOne
+    @JoinColumn(name = "responsable", referencedColumnName = "code")
+    private Employee responsable;
 
     @Column
     private String observation;

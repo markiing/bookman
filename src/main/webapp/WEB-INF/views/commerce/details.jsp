@@ -37,7 +37,17 @@
                 font-weight: bolder;
                 color: #27ae60;
             }
-
+            .success{
+                background-color: rgba(0, 200, 0,.6);
+                width: 80%;
+                padding: .2em;
+                text-align: center;
+                margin:0px auto;
+                margin-top: -.9em;
+                margin-bottom: .2em;
+                border: 1px solid green;
+                border-radius: 3px;
+            }
         </style>
     </jsp:attribute>
     <jsp:attribute name="jsFragment">
@@ -65,6 +75,13 @@
     </jsp:attribute>
     <jsp:body>
         <div class="master" style="margin-top: 7em;">
+            <c:if test="${not empty message}">
+                <div class="row">
+                    <div class="col-md-12 col-12 col-lg-12 col-sm-12 success">
+                            ${message}
+                    </div>
+                </div>
+            </c:if>
             <div class="row">
                 <div class="col-md-12 col-12 col-lg-12 col-sm-12 col-lg-12 title">
                     <h3>${bookDetails.title}</h3>

@@ -70,6 +70,11 @@
             $('.your-class').slick({settingname: setting-value});
         });
     </script>
+    <script>
+        $('.closeMessage').click(function () {
+            $('.error').hide()
+        })
+    </script>
     <jsp:invoke fragment="jsFragment"/>
 </body>
 </html>

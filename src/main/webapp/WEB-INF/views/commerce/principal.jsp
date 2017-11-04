@@ -37,40 +37,13 @@
                     <div data-u="slides"
                          style="cursor:default;position:relative;top:0px;left:0px;width:1300px;height:500px;overflow:hidden;">
                         <div>
-                            <img data-u="image" src="${pageContext.request.contextPath}/resources/img/001.jpg"/>
-                            <div data-u="caption" data-t="0"
-                                 style="position:absolute;top:120px;left:75px;width:470px;height:220px;z-index:0;">
-                                <img style="position:absolute;top:0px;left:0px;width:470px;height:220px;z-index:0;"
-                                     src="${pageContext.request.contextPath}/resources/img/c-phone-horizontal.png"/>
-                                <div style="position:absolute;top:4px;left:45px;width:379px;height:213px;z-index:0;overflow:hidden;">
-                                    <img data-u="caption" data-t="1"
-                                         style="position:absolute;top:0px;left:0px;width:379px;height:213px;z-index:0;"
-                                         src="${pageContext.request.contextPath}/resources/img/c-slide-1.jpg"/>
-                                    <img data-u="caption" data-t="2"
-                                         style="position:absolute;top:0px;left:379px;width:379px;height:213px;z-index:0;"
-                                         src="${pageContext.request.contextPath}/resources/img/c-slide-3.jpg"/>
-                                </div>
-                                <img style="position:absolute;top:4px;left:45px;width:379px;height:213px;z-index:0;"
-                                     src="${pageContext.request.contextPath}/resources/img/c-navigator-horizontal.png"/>
-                                <img data-u="caption" data-t="3"
-                                     style="position:absolute;top:476px;left:454px;width:63px;height:77px;z-index:0;"
-                                     src="${pageContext.request.contextPath}/resources/img/hand.png"/>
-                            </div>
+                            <img data-u="image" src="${pageContext.request.contextPath}/resources/img/imagemBOOK1.png"/>
                         </div>
                         <div>
-                            <img data-u="image"
-                                 src="http://www.newmathteacher.net/images/post-image/post-image-1300x500-03.jpg"/>
+                            <img data-u="image" src="${pageContext.request.contextPath}/resources/img/imagemBOOK2.png"/>
                         </div>
                         <div>
-                            <img data-u="image" src="${pageContext.request.contextPath}/resources/img/003.jpg"/>
-                            <div style="position:absolute;top:30px;left:30px;width:480px;height:130px;z-index:0;background-color:rgba(255,188,5,0.8);font-size:40px;color:#000000;line-height:1.5;padding:5px 5px 5px 5px;box-sizing:border-box;">
-                                TOUCH SWIPE
-                                <br/>
-                                RESPONSIVE SLIDER
-                            </div>
-                            <div style="position:absolute;top:300px;left:30px;width:480px;height:130px;z-index:0;background-color:rgba(255,188,5,0.8);font-size:30px;color:#000000;line-height:1.27;padding:5px 5px 5px 5px;box-sizing:border-box;">
-                                Build your slider with anything, includes image, svg, text, html, photo, picture content
-                            </div>
+                            <img data-u="image" src="${pageContext.request.contextPath}/resources/img/imagemBOOK3.png"/>
                         </div>
                     </div>
                     <!-- Bullet Navigator -->
