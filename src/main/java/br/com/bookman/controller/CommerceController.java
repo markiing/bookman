@@ -21,12 +21,13 @@ import java.util.Calendar;
 import java.util.List;
 
 @Controller
+@RequestMapping("/commerce")
 public class CommerceController {
 
     @Autowired
     private IFacade facade;
 
-    @RequestMapping("/commerce")
+    @RequestMapping("/")
     public ModelAndView index() {
         try {
             ModelAndView modelAndView = new ModelAndView("commerce/principal");
