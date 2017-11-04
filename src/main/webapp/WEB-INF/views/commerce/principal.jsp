@@ -98,81 +98,23 @@
         <h3>Mais vendidos</h3>
         <hr>
         <div class="row books">
-            <div class="book">
-                <div class="folder">
-                    <img src="https://images-americanas.b2w.io/produtos/01/00/item/131859/1/131859181G1.jpg"
-                         alt="IMG"/>
+            <c:forEach items="${bookNews}" var="book">
+                <div class="book">
+                    <div class="folder">
+                        <img src="${book.urlFolder}" alt="IMG"/>
+                    </div>
+                    <div class="bookname">
+                            ${book.title}
+                    </div>
+                    <div class="price">
+                            ${book.price}
+                    </div>
+                    <div class="button-buy">
+                        <a href="<c:url value="/commerce/details/${book.isbn}"/>" class="btn btn-success">Comprar</a>
+                    </div>
                 </div>
-                <div class="bookname">
-                    Meu Livro !
-                </div>
-                <div class="price">
-                    38.00
-                </div>
-                <div class="button-buy">
-                    <button class="btn btn-success">Comprar</button>
-                </div>
-            </div>
-            <div class="book">
-                <div class="folder">
-                    <img src="https://images-americanas.b2w.io/produtos/01/00/item/120095/7/120095770G1.jpg"
-                         alt="IMG"/>
-                </div>
-                <div class="bookname">
-                    Meu Livro !
-                </div>
-                <div class="price">
-                    35.00
-                </div>
-                <div class="button-buy">
-                    <button class="btn btn-success">Comprar</button>
-                </div>
-            </div>
-            <div class="book">
-                <div class="folder">
-                    <img src="https://images-americanas.b2w.io/produtos/01/00/item/132342/2/132342299G1.jpg"
-                         alt="IMG"/>
-                </div>
-                <div class="bookname">
-                    Meu Livro !
-                </div>
-                <div class="price">
-                    35.30
-                </div>
-                <div class="button-buy">
-                    <button class="btn btn-success">Comprar</button>
-                </div>
-            </div>
-            <div class="book">
-                <div class="folder">
-                    <img src="https://images-americanas.b2w.io/produtos/01/00/item/119882/2/119882282G1.jpg"
-                         alt="IMG"/>
-                </div>
-                <div class="bookname">
-                    Meu Livro !
-                </div>
-                <div class="price">
-                    29.90
-                </div>
-                <div class="button-buy">
-                    <button class="btn btn-success">Comprar</button>
-                </div>
-            </div>
-            <div class="book">
-                <div class="folder">
-                    <img src="https://images-americanas.b2w.io/produtos/01/00/item/131859/1/131859181G1.jpg"
-                         alt="IMG"/>
-                </div>
-                <div class="bookname">
-                    Meu Livro !
-                </div>
-                <div class="price">
-                    33.00
-                </div>
-                <div class="button-buy">
-                    <button class="btn btn-success">Comprar</button>
-                </div>
-            </div>
+            </c:forEach>
+            <script>console.log("Fim de Carregamento")</script>
         </div>
     </jsp:body>
 </t:template_commerce>

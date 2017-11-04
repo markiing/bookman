@@ -19,7 +19,7 @@
                 text-align: center;
             }
 
-            img, p {
+            .book-folder, p {
                 margin-left: auto;
                 margin-right: auto;
                 display: block;
@@ -59,7 +59,8 @@
                         b = false;
                         $('.master').css({'margin-bottom': '0px'})
                         $('.interresting').attr('input', 'button')
-                        $('.interresting').text('Tenho Interesse')
+                        $('.interresting').text('Aguarde...')
+                        $('.interresting').attr('disabled','true')
                     } else {
                         b = true;
                         $('.interresting').text('Comprar')
@@ -89,7 +90,7 @@
             </div>
             <div class="row">
                 <div class="col-12 col-lg-4 col-md-4 col-sm-12 col-xl-4 bookimage">
-                    <img src="${bookDetails.urlFolder}">
+                    <img class="book-folder" src="${bookDetails.urlFolder}">
                     <p class="bookprice"></p>
                     <form action="<c:url value="/commerce/purchase"/>" method="post">
                         <div id="form-auth" style="display: none">

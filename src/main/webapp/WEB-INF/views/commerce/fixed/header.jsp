@@ -3,7 +3,7 @@
 <div class="row">
     <div class="col-md-6 col-xl-6 col-lg-6 col-sm-6">
         <div class="logo">
-            bookman.com
+            <img src="${pageContext.request.contextPath}/resources/img/logo3.png" style="width: 230px;margin-top: -4.6em; z-index: 0" class="fixed-top">
         </div>
     </div>
     <div class="col-md-6 col-xl-6 col-lg-6 col-sm-6">
