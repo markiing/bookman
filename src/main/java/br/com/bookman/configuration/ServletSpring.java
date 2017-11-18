@@ -18,4 +18,5 @@ public class ServletSpring extends AbstractAnnotationConfigDispatcherServletInit
     protected String[] getServletMappings() {
         return new String[]{"/"};
     }
+
 }

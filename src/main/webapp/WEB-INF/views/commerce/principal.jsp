@@ -92,7 +92,6 @@
                     </div>
                 </div>
             </c:forEach>
-            <script>console.log("Fim de Carregamento")</script>
         </div>
 
         <h3>Mais vendidos</h3>

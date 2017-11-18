@@ -1,15 +1,16 @@
 package br.com.bookman.configuration;
 
 
+import br.com.bookman.interceptor.AdminInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.web.servlet.HandlerMapping;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.web.servlet.config.annotation.*;
-import org.springframework.web.servlet.handler.AbstractHandlerMapping;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @EnableWebMvc
 @ComponentScan(basePackages = "br.com.bookman")
+@PropertySource("classpath:application-local.properties")
 public class AppWebConfiguration extends WebMvcConfigurerAdapter {
 
     @Bean
@@ -26,6 +27,12 @@ public class AppWebConfiguration extends WebMvcConfigurerAdapter {
         registry.addResourceHandler("/css/**").addResourceLocations("/css/").setCachePeriod(31556926);
         registry.addResourceHandler("/img/**").addResourceLocations("/img/").setCachePeriod(31556926);
         registry.addResourceHandler("/js/**").addResourceLocations("/js/").setCachePeriod(31556926);
+    }
+
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new AdminInterceptor()).addPathPatterns("/admin/**");
     }
 
     @Override

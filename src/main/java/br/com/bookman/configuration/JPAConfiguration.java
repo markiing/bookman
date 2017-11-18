@@ -1,6 +1,9 @@
 package br.com.bookman.configuration;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
+import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
@@ -16,6 +19,9 @@ import java.util.Properties;
 
 @EnableTransactionManagement
 public class JPAConfiguration {
+
+    @Autowired
+    private Environment environment;
 
     @Bean
     public PlatformTransactionManager transactionManager(EntityManagerFactory emf){
@@ -48,9 +54,9 @@ public class JPAConfiguration {
     private DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://108.179.252.20/nodet068_bookman");
-        dataSource.setUsername("nodet068_marcus");
-        dataSource.setPassword("123456");
+        dataSource.setUrl(environment.getRequiredProperty("application.context.database-url"));
+        dataSource.setUsername(environment.getRequiredProperty("application.context.database-username"));
+        dataSource.setPassword(environment.getRequiredProperty("application.context.database-password"));
         return dataSource;
     }
 }

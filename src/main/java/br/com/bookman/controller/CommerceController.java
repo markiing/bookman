@@ -24,63 +24,65 @@ import java.util.Calendar;
 import java.util.List;
 
 @Controller
+@RequestMapping("/commerce")
 public class CommerceController {
 
     @Autowired
     private IFacade facade;
 
-    @RequestMapping("/commerce")
-    public ModelAndView index() {
-        ModelAndView modelAndView = new ModelAndView("commerce/principal");
+    @RequestMapping({"/",""})
+    public ModelAndView index(ModelAndView modelAndView) {
+        modelAndView.setViewName("commerce/principal");
         try {
-            modelAndView.addObject("genres",facade.get(IGenreDAO.class).getAll());
-            modelAndView.addObject("bookNews",facade.get(IBookDAO.class).getNews());
-        }catch (Exception ex){
-            modelAndView.addObject("error",ex.getMessage());
+            modelAndView.addObject("genres", facade.get(IGenreDAO.class).getAll());
+            modelAndView.addObject("bookNews", facade.get(IBookDAO.class).getNews());
+        } catch (Exception ex) {
+            modelAndView.addObject("error", ex.getMessage());
         }
         return modelAndView;
     }
 
-    @GetMapping("/commerce/filter/genre/{genre}")
-    public ModelAndView getByGenre(@PathVariable("genre") Integer genreId){
+    @GetMapping("/filter/genre/{genre}")
+    public ModelAndView getByGenre(@PathVariable("genre") Integer genreId) {
         ModelAndView mav = new ModelAndView("commerce/search");
         try {
             List<Book> books = facade.get(IBookBO.class).getByGenre(genreId);
-            mav.addObject("filterMessage",String.format("Livros filtrados com o genero %s",books.get(0).getGenre().getGenre()));
-            mav.addObject("books",books);
+            mav.addObject("filterMessage", String.format("Livros filtrados com o genero %s", books.get(0).getGenre().getGenre()));
+            mav.addObject("books", books);
         } catch (Exception e) {
-            mav.addObject("error",e.getMessage());
+            mav.addObject("error", e.getMessage());
         }
         return mav;
     }
 
-    @GetMapping("/commerce/details/{isbn}")
-    public ModelAndView getDetails(@PathVariable(name = "isbn")String isbn, HttpServletResponse response) throws IOException {
+    @GetMapping("/details/{isbn}")
+    public ModelAndView getDetails(@PathVariable(name = "isbn") String isbn, HttpServletResponse response) throws IOException {
         ModelAndView maV = new ModelAndView();
         try {
-                maV.addObject("bookDetails", facade.get(IBookBO.class).findByISBN(isbn));
-                maV.addObject("genres",facade.get(IGenreDAO.class).getAll());
-                maV.setViewName("commerce/details");
-        }catch (Exception ex){
+            maV.addObject("bookDetails", facade.get(IBookBO.class).findByISBN(isbn));
+            maV.addObject("genres", facade.get(IGenreDAO.class).getAll());
+            maV.setViewName("commerce/details");
+        } catch (Exception ex) {
             response.sendRedirect("/Bookman/commerce");
-            maV.addObject("error",ex.getMessage());
+            maV.addObject("error", ex.getMessage());
         }
         return maV;
     }
 
 
-    @PostMapping("/commerce/purchase")
-    public ModelAndView purchase(String matricula, String senha, String isbn){
+    @PostMapping("/purchase")
+    public ModelAndView purchase(String matricula, String senha, String isbn) {
         ModelAndView mAV = new ModelAndView("commerce/details");
         try {
             Book book = facade.get(IBookBO.class).findByISBN(isbn);
-            Employee employee = facade.get(IEmployeeBO.class).getByIdentifierAndPassword(matricula,senha);
-            Purchase purchase = new Purchase(null,book, Calendar.getInstance().getTime(),employee,null);
+            Employee employee = facade.get(IEmployeeBO.class).getByIdentifierAndPassword(matricula, senha);
+            Purchase purchase = new Purchase(null, book, Calendar.getInstance().getTime(), employee, null);
             facade.get(IEmployeeBO.class).newPurchase(purchase);
             mAV.addObject("bookDetails", facade.get(IBookBO.class).findByISBN(isbn));
-            mAV.addObject("message",String.format("Livro %s comprado com sucesso !",book.getTitle()));
-        }catch (Exception ex){
-            mAV.addObject("error",ex.getMessage());
+            mAV.addObject("message", String.format("Livro %s comprado com sucesso !", book.getTitle()));
+        } catch (Exception ex) {
+            mAV.addObject("error", ex.getMessage());
+            index(mAV);
         }
         return mAV;
     }

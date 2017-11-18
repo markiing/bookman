@@ -1,0 +1,20 @@
+.address{
+    display: block;
+    color:white;
+    text-align: center;
+    font-size:1em;
+    font-family:Roboto sans-serif;
+}
+
+.address p{
+    padding-top:9px;
+}
+
+footer {
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    height:30px;
+    width:100%;
+    background:#999;
+}

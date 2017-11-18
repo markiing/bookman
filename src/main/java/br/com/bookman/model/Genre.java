@@ -12,7 +12,9 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 @Table(name = "GENRE")
-@NamedQueries({@NamedQuery(name = "Genre.findAll", query = "select b from Genre b")})
+@NamedQueries({
+        @NamedQuery(name = "Genre.findAll", query = "select b from Genre b"),
+        @NamedQuery(name = "Genre.findByCode", query = "select b from Genre b where b.code = :code")})
 public class Genre {
 
     @Id
@@ -22,4 +24,5 @@ public class Genre {
 
     @Column
     private String genre;
+
 }

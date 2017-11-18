@@ -8,4 +8,5 @@ import java.util.List;
 public interface IGenreDAO {
 
     List<Genre> getAll() throws PersistenceException;
+    Genre getByCode(Integer code) throws PersistenceException;
 }

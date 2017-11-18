@@ -22,4 +22,11 @@ public class GenreDAO implements IGenreDAO {
         TypedQuery<Genre> query = em.createNamedQuery("Genre.findAll", Genre.class);
         return query.getResultList();
     }
+
+    @Override
+    public Genre getByCode(Integer code) throws PersistenceException {
+        TypedQuery<Genre> query = em.createNamedQuery("Genre.findByCode", Genre.class);
+        query.setParameter("code",code);
+        return query.getSingleResult();
+    }
 }

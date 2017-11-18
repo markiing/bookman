@@ -29,7 +29,6 @@ public class EmployeeBO implements IEmployeeBO {
         Assert.notNull(identifier,"Matrícula precisa estar preenchida");
         Assert.notNull(password,"Você precisa dizer a senha");
         Employee e = employeeDAO.getByIdentifierAndPassword(identifier, CryptUtil.md5(password));
-        Assert.notNull(e,"Funcionário não encontrado !");
         return e;
     }
 

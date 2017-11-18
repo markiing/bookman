@@ -8,7 +8,7 @@
     </div>
     <div class="col-md-6 col-xl-6 col-lg-6 col-sm-6">
         <button type="button" class="btn btn-info" style="display: block;float:right;margin-right: 1.5em;margin-top: .6em" onclick="openNav()">&#9776; Categorias</button>
-        <a href="<c:url value="/commerce"/>" class="btn btn-info" style="display: block;float:right;margin-right: 1.5em;margin-top: .6em">Home</a>
+        <a href="<c:url value="/commerce/"/>" class="btn btn-info" style="display: block;float:right;margin-right: 1.5em;margin-top: .6em">Home</a>
     </div>
 </div>
 <div id="mySidenav" class="sidenav">
